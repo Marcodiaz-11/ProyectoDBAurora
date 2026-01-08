@@ -1,2 +1,2 @@
 # ProyectoDBAurora
-Subir archivos o pru
+Subir archivos o proyectos
