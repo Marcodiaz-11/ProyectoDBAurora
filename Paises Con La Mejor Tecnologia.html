@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Países Líderes en Tecnología - Comparativa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #1a2980, #26d0ce);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+        
+        thead {
+            background: linear-gradient(to right, #2c3e50, #4a6491);
+            color: white;
+        }
+        
+        th {
+            padding: 20px 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        th:first-child {
+            border-top-left-radius: 10px;
+        }
+        
+        th:last-child {
+            border-top-right-radius: 10px;
+        }
+        
+        td {
+            padding: 20px 15px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        tbody tr:nth-child(even):hover {
+            background-color: #f0f2f5;
+        }
+        
+        .country-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+        }
+        
+        .flag {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .link-btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .link-btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .link-btn i {
+            margin-right: 5px;
+        }
+        
+        .info-text {
+            margin-bottom: 15px;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            border-top: 1px solid #eaeaea;
+        }
+        
+        .disclaimer {
+            background-color: #fff8e1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .link-description {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            th, td {
+                padding: 15px 10px;
+            }
+            
+            .link-btn {
+                padding: 6px 10px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-globe-americas"></i> Países Líderes en Tecnología</h1>
+            <p class="subtitle">Comparativa de los países más innovadores y avanzados tecnológicamente en la actualidad</p>
+        </header>
+        
+        <div class="disclaimer">
+            <p><strong>Nota:</strong> Todos los enlaces dirigen a fuentes oficiales, artículos académicos o documentación real sobre los antecedentes tecnológicos de cada país.</p>
+        </div>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="20%">País</th>
+                        <th width="40%">Antecedentes Tecnológicos</th>
+                        <th width="40%">Tecnologías Actuales Destacadas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="country-name">
+                                <span class="flag">🇺🇸</span> Estados Unidos
+                            </div>
+                        </td>
+                        <td>
+                            <p class="info-text">Cuna de la revolución digital y pionero en el desarrollo de internet, Silicon Valley ha sido el epicentro de innovación tecnológica desde los años 70.</p>
+                            <a href="https://www.nsf.gov/about/history/" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Historia de la NSF
+                            </a>
+                        </td>
+                        <td>
+                            <p class="info-text">Lidera en inteligencia artificial, biotecnología, exploración espacial (SpaceX), y empresas tecnológicas globales (Apple, Google, Microsoft).</p>
+							<a href="https://images.pexels.com/photos/8849295/pexels-photo-8849295.jpeg" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Imagen de IA
+                            </a>
+							<a href="https://images.pexels.com/photos/8294747/pexels-photo-8294747.jpeg" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Robot
+                            </a>
+							<a href="https://images.pexels.com/photos/30869081/pexels-photo-30869081.jpeg" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Tecnológicas globales
+                            </a>
+							<a href="https://images.pexels.com/photos/8439009/pexels-photo-8439009.jpeg" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Biotecnologia
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="country-name">
+                                <span class="flag">🇯🇵</span> Japón
+                            </div>
+                        </td>
+                        <td>
+                            <p class="info-text">Tras la Segunda Guerra Mundial, Japón se reconstruyó enfocándose en tecnología de precisión, electrónica y robótica, convirtiéndose en líder mundial.</p>
+                            <a href="https://www.jst.go.jp/EN/about/history.html" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Historia JST
+                            </a>
+                        </td>
+                        <td>
+                            <p class="info-text">Pionero en robótica, automóviles autónomos, trenes de alta velocidad (Shinkansen) y tecnología de consumo (Sony, Panasonic, Nintendo).</p>
+							<a href="https://images.pexels.com/photos/35077449/pexels-photo-35077449.jpeg" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Trenes
+                            </a>
+							<a href="https://images.pexels.com/photos/32998808/pexels-photo-32998808.jpeg" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Robot
+                            </a>
+							<a href="https://images.pexels.com/photos/4523031/pexels-photo-4523031.jpeg" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Consumo Tec
+                            </a>
+							<a href="https://images.pexels.com/photos/8566632/pexels-photo-8566632.jpeg" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Robots autonomos
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="country-name">
+                                <span class="flag">🇰🇷</span> Corea del Sur
+                            </div>
+                        </td>
+                        <td>
+                            <p class="info-text">De país devastado por la guerra en los años 50 a potencia tecnológica en los 90, gracias a grandes conglomerados (chaebols) como Samsung y LG.</p>
+                            <a href="https://spanish.korea.net/NewsFocus/HonoraryReporters/view?articleId=203616" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Historia NST
+                            </a>
+                        </td>
+                        <td>
+                            <p class="info-text">Líder en telecomunicaciones (5G), semiconductores, pantallas OLED y smartphones. Tiene la mayor penetración de internet de alta velocidad del mundo.</p>
+							<a href="https://images.pexels.com/photos/18510433/pexels-photo-18510433.jpeg" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Telecomunicaciones
+                            </a>
+							<a href="https://images.pexels.com/photos/1448561/pexels-photo-1448561.jpeg" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Semiconductores
+                            </a>
+							<a href="https://images.pexels.com/photos/2643698/pexels-photo-2643698.jpeg" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Smarthpones
+                            </a>
+							<a href="https://images.pexels.com/photos/17684554/pexels-photo-17684554.jpeg" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Pantallas OLED
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="country-name">
+                                <span class="flag">🇨🇳</span> China
+                            </div>
+                        </td>
+                        <td>
+                            <p class="info-text">Con una transformación tecnológica acelerada desde finales del siglo XX, ha pasado de ser "la fábrica del mundo" a líder en innovación tecnológica.</p>
+                            <a href="http://english.www.gov.cn/archive/whitepaper/202109/26/content_WS615028a6c6d0df57f98e263a.html" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Libro Blanco Ciencia
+                            </a>
+                        </td>
+                        <td>
+                            <p class="info-text">Dominante en telecomunicaciones (Huawei), inteligencia artificial, reconocimiento facial, vehículos eléctricos y supercomputación.</p>
+							<a href="https://images.pexels.com/photos/33202774/pexels-photo-33202774.jpeg" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Telecomunicaciones
+                            </a>
+							<a href="https://images.pexels.com/photos/30869149/pexels-photo-30869149.jpeg" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> IA
+                            </a>
+							<a href="https://images.pexels.com/photos/5053984/pexels-photo-5053984.jpeg" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Reconocimiento Facial
+                            </a>
+							<a href="https://images.pexels.com/photos/1051071/pexels-photo-1051071.jpeg" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Vehiculos 
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="country-name">
+                                <span class="flag">🇩🇪</span> Alemania
+                            </div>
+                        </td>
+                        <td>
+                            <p class="info-text">Tradición de excelencia en ingeniería desde la Revolución Industrial, con contribuciones fundamentales a la automoción, química y física.</p>
+                            <a href="https://www.dfg.de/en/dfg_profile/history/" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Historia DFG
+                            </a>
+                        </td>
+                        <td>
+                            <p class="info-text">Líder en Industria 4.0, ingeniería de precisión, automóviles de alta gama, energías renovables y maquinaria industrial avanzada.</p>
+							<a href="https://images.pexels.com/photos/8439004/pexels-photo-8439004.jpeg" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Ing. Presicion
+                            </a>
+							<a href="https://images.pexels.com/photos/17452267/pexels-photo-17452267.jpeg" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Carros Alta Gama
+                            </a>
+							<a href="https://images.pexels.com/photos/207489/pexels-photo-207489.jpeg" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Energia renovable
+                            </a>
+							<a href="https://images.pexels.com/photos/29988986/pexels-photo-29988986.jpeg" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Maquinaria Industrial
+                            </a>
+						</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="country-name">
+                                <span class="flag">🇫🇮</span> Finlandia
+                            </div>
+                        </td>
+                        <td>
+                            <p class="info-text">A pesar de su pequeña población, desarrolló un ecosistema tecnológico único, siendo el hogar de Nokia y pionero en telecomunicaciones móviles.</p>
+                            <a href="https://www.aka.fi/en/about-us/history/" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Historia Academia Finlandesa
+                            </a>
+                        </td>
+                        <td>
+                            <p class="info-text">Destaca en tecnologías limpias, videojuegos, telecomunicaciones y educación tecnológica de alta calidad.</p>
+							<a href="https://images.pexels.com/photos/9799704/pexels-photo-9799704.jpeg" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Tec. Limpias
+                            </a>
+							<a href="https://images.pexels.com/photos/7862360/pexels-photo-7862360.jpeg" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Videojuegos
+                            </a>
+							<a href="https://images.pexels.com/photos/207489/pexels-photo-207489.jpeg" target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Telecomunicaciones
+                            </a>
+							<a href="https://images.pexels.com/photos/7983551/pexels-photo-7983551.jpeg target="_blank" class="link-btn">
+                                <i class="fas fa-external-link-alt"></i> Educacion Tecnologica
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
