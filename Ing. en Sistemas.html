@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingeniería en Sistemas - Tu Futuro Tecnológico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --azul-principal: #2A5CAA;
+            --azul-oscuro: #1a3a6e;
+            --naranja: #FF6B35;
+            --gris-claro: #F5F5F5;
+            --gris-texto: #444;
+            --blanco: #FFFFFF;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--gris-texto);
+            background-color: var(--blanco);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header y navegación */
+        header {
+            background-color: var(--azul-principal);
+            color: var(--blanco);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            font-size: 2rem;
+            color: var(--naranja);
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: var(--blanco);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 0;
+        }
+        
+        nav a:hover {
+            color: var(--naranja);
+            border-bottom: 2px solid var(--naranja);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--blanco);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero section */
+        .hero {
+            background: linear-gradient(rgba(42, 92, 170, 0.9), rgba(42, 92, 170, 0.8)), url('https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--blanco);
+            text-align: center;
+            padding: 5rem 0;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--naranja);
+            color: var(--blanco);
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #e55a2b;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Secciones generales */
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--azul-principal);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--naranja);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Sobre la carrera */
+        .carrera-info {
+            background-color: var(--gris-claro);
+        }
+        
+        .carrera-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .carrera-card {
+            background-color: var(--blanco);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .carrera-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .carrera-card i {
+            font-size: 2.5rem;
+            color: var(--azul-principal);
+            margin-bottom: 1rem;
+        }
+        
+        .carrera-card h3 {
+            color: var(--azul-oscuro);
+            margin-bottom: 1rem;
+        }
+        
+        /* Plan de estudios */
+        .plan-estudios {
+            background-color: var(--blanco);
+        }
+        
+        .materias-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .materia {
+            background-color: var(--gris-claro);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--naranja);
+        }
+        
+        .materia h4 {
+            color: var(--azul-principal);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Testimonios */
+        .testimonios {
+            background-color: var(--gris-claro);
+        }
+        
+        .testimonio-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonio {
+            background-color: var(--blanco);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .testimonio:before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--naranja);
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            opacity: 0.3;
+        }
+        
+        .testimonio img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+        
+        /* Contacto */
+        .contacto-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--gris-claro);
+            padding: 2.5rem;
+            border-radius: 8px;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--azul-oscuro);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--azul-oscuro);
+            color: var(--blanco);
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-logo h3 {
+            color: var(--blanco);
+            margin-bottom: 1rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-icons a {
+            color: var(--blanco);
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--naranja);
+            transform: translateY(-5px);
+        }
+        
+        .footer-links h4 {
+            color: var(--blanco);
+            margin-bottom: 1.2rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--naranja);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+                margin-top: 1rem;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header y Navegación -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-laptop-code"></i>
+                <h1>Ingeniería en Sistemas</h1>
+            </div>
+            
+            <button class="mobile-menu-btn" id="menuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#carrera">La Carrera</a></li>
+                    <li><a href="#plan">Plan de Estudios</a></li>
+                    <li><a href="#testimonios">Testimonios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección Hero -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h2>Transforma el mundo digital con Ingeniería en Sistemas</h2>
+            <p>Formamos profesionales capaces de diseñar, desarrollar e implementar soluciones tecnológicas innovadoras para los desafíos del siglo XXI.</p>
+            <a href="#contacto" class="btn">Solicita Información</a>
+        </div>
+    </section>
+
+    <!-- Sección Sobre la Carrera -->
+    <section class="carrera-info" id="carrera">
+        <div class="container">
+            <h2 class="section-title">¿Por qué estudiar Ingeniería en Sistemas?</h2>
+            
+            <div class="carrera-grid">
+                <div class="carrera-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Alta Demanda Laboral</h3>
+                    <p>La tecnología es el presente y futuro. Nuestros egresados tienen una tasa de empleabilidad del 95% en los primeros 6 meses.</p>
+                </div>
+                
+                <div class="carrera-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Ámbito Internacional</h3>
+                    <p>Trabaja en cualquier parte del mundo. La ingeniería en sistemas es una profesión global con oportunidades en todos los continentes.</p>
+                </div>
+                
+                <div class="carrera-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Innovación Constante</h3>
+                    <p>Aprende las últimas tecnologías: Inteligencia Artificial, Ciberseguridad, Desarrollo Web, Cloud Computing y más.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Plan de Estudios -->
+    <section class="plan-estudios" id="plan">
+        <div class="container">
+            <h2 class="section-title">Plan de Estudios</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Nuestra malla curricular de 5 años combina fundamentos teóricos con práctica intensiva en laboratorios especializados.</p>
+            
+            <div class="materias-grid">
+                <div class="materia">
+                    <h4>Programación I y II</h4>
+                    <p>Fundamentos de algoritmos y estructuras de datos.</p>
+                </div>
+                
+                <div class="materia">
+                    <h4>Bases de Datos</h4>
+                    <p>Diseño e implementación de sistemas de gestión de datos.</p>
+                </div>
+                
+                <div class="materia">
+                    <h4>Redes y Comunicaciones</h4>
+                    <p>Arquitectura de redes, protocolos y seguridad.</p>
+                </div>
+                
+                <div class="materia">
+                    <h4>Ingeniería de Software</h4>
+                    <p>Metodologías ágiles, diseño y gestión de proyectos.</p>
+                </div>
+                
+                <div class="materia">
+                    <h4>Inteligencia Artificial</h4>
+                    <p>Machine Learning, redes neuronales y procesamiento de lenguaje.</p>
+                </div>
+                
+                <div class="materia">
+                    <h4>Ciberseguridad</h4>
+                    <p>Protección de sistemas, ética hacker y auditoría.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#contacto" class="btn">Descargar Plan Completo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Testimonios -->
+    <section class="testimonios" id="testimonios">
+        <div class="container">
+            <h2 class="section-title">Testimonios de Nuestros Egresados</h2>
+            
+            <div class="testimonio-container">
+                <div class="testimonio">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Juan Pérez">
+                    <h4>Juan Pérez</h4>
+                    <p><strong>Desarrollador Senior en Google</strong></p>
+                    <p>"La carrera me dio las bases técnicas y la mentalidad para resolver problemas complejos. Hoy trabajo en proyectos que impactan a millones de usuarios."</p>
+                </div>
+                
+                <div class="testimonio">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="María González">
+                    <h4>María González</h4>
+                    <p><strong>Emprendedora Tech</strong></p>
+                    <p>"Creé mi propia startup de software educativo gracias a los conocimientos y contactos que obtuve durante la carrera. La ingeniería en sistemas te da las herramientas para crear tu propio camino."</p>
+                </div>
+                
+                <div class="testimonio">
+                    <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Carlos Rodríguez">
+                    <h4>Carlos Rodríguez</h4>
+                    <p><strong>Consultor en Ciberseguridad</strong></p>
+                    <p>"La especialización en ciberseguridad que ofrece la carrera me abrió puertas en el sector financiero. Hoy ayudo a bancos a proteger sus sistemas de ataques cibernéticos."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section class="contacto" id="contacto">
+        <div class="container">
+            <h2 class="section-title">Solicita Más Información</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">¿Listo para comenzar tu futuro en tecnología? Contáctanos y te enviaremos toda la información sobre inscripciones, becas y planes de estudio.</p>
+            
+            <div class="contacto-form">
+                <form id="formContacto">
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo</label>
+                        <input type="text" id="nombre" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensaje">¿En qué podemos ayudarte?</label>
+                        <textarea id="mensaje" class="form-control" placeholder="Cuéntanos tus intereses y preguntas..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn" style="width: 100%;">Enviar Solicitud</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <h3>Ingeniería en Sistemas</h3>
+                    <p>Formando a los líderes tecnológicos del mañana.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#carrera">La Carrera</a></li>
+                        <li><a href="#plan">Plan de Estudios</a></li>
+                        <li><a href="#testimonios">Testimonios</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Primero de Mayo, Naucalpan</li>
+                        <li><i class="fas fa-phone"></i> +52 (55) 12 34 56 97</li>
+                        <li><i class="fas fa-envelope"></i> gtunaucalpan@tecnaucalpan.com.mx</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

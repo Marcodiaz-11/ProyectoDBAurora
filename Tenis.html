@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Marco Court Pro</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        /* Fondo de imagen para todo el sitio */
+        body {
+            background-image: url('Logo.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        /* Overlay para mejorar legibilidad */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.85);
+            z-index: -1;
+        }
+
+        /* ===== MENU FIJO ===== */
+        nav {
+            background: rgba(31, 41, 51, 0.95);
+            padding: 10px 30px;
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-right: 40px;
+        }
+        
+        .logo span {
+            color: #e5e7eb;
+            font-size: 1.4em;
+            font-weight: bold;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+        }
+
+        ul li {
+            position: relative;
+        }
+
+        ul li a {
+            color: #e5e7eb;
+            padding: 12px 18px;
+            text-decoration: none;
+            display: block;
+            transition: background 0.3s;
+        }
+
+        ul li a:hover {
+            background: #374151;
+        }
+
+        /* ===== SUBMENU ===== */
+        ul li ul {
+            display: none;
+            position: absolute;
+            background: #2d3748;
+            top: 100%;
+            left: 0;
+            min-width: 160px;
+            z-index: 1001;
+        }
+
+        ul li:hover ul {
+            display: block;
+        }
+
+        ul li ul li a {
+            padding: 10px;
+        }
+
+        /* ===== CONTENIDO PRINCIPAL ===== */
+        .contenido-principal {
+            margin-top: 70px; /* Espacio para el menú fijo */
+            padding: 20px;
+        }
+
+        /* ===== SECCIONES ===== */
+        .contenido {
+            padding: 60px;
+            display: none;
+            animation: fade 0.5s ease;
+            background: rgba(255, 255, 255, 0.95);
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            max-width: 1200px;
+        }
+
+        .active {
+            display: block;
+        }
+
+        @keyframes fade {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        /* ===== BIENVENIDA ===== */
+        .bienvenida {
+            text-align: center;
+            color: #1f2933;
+            animation: mover 1s infinite alternate;
+            padding: 80px 60px;
+        }
+
+        .titulo-bienvenida {
+            font-size: 3.5em;
+            font-weight: bold;
+            color: #1f2933;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        @keyframes mover {
+            from { transform: translateX(-20px); }
+            to { transform: translateX(20px); }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">
+        <span>Marco Court Pro</span>
+    </div>
+    <ul>
+        <li><a href="#" onclick="mostrar('inicio')">Inicio</a></li>
+        <li>
+            <a href="#">Conócenos</a>
+            <ul>
+                <li><a href="#" onclick="mostrar('mision')">Misión</a></li>
+                <li><a href="#" onclick="mostrar('vision')">Visión</a></li>
+                <li><a href="#" onclick="mostrar('objetivo')">Objetivo</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+<div class="contenido-principal">
+    <div id="inicio" class="contenido active bienvenida">
+        <div class="titulo-bienvenida">¡Bienvenidos a Marco Court Pro!</div>
+    </div>
+
+    <div id="mision" class="contenido">
+        <h1>Misión</h1>
+        <p>En Marco Court Pro nos dedicamos a ofrecer una amplia selección de tenis originales de las mejores marcas como Nike, Adidas, Puma, New Balance y Jordan. Nuestro compromiso es brindar calidad, estilo y comodidad a cada cliente, ayudándolos a encontrar el calzado ideal para su deporte, uso diario o estilo de vida, con una atención confiable y una experiencia de compra segura.</p>
+    </div>
+
+    <div id="vision" class="contenido">
+        <h1>Visión</h1>
+        <p>Ser una tienda reconocida por la variedad, autenticidad y buen servicio en el mercado del calzado deportivo. Buscamos posicionarnos como una referencia para los amantes del tenis, combinando innovación, tendencias y accesibilidad, para que cada persona pueda expresar su estilo y rendimiento a través de nuestras marcas.</p>
+    </div>
+
+    <div id="objetivo" class="contenido">
+        <h1>Objetivo</h1>
+        <p>Nuestro objetivo es satisfacer las necesidades de nuestros clientes ofreciendo tenis de alto desempeño y moda urbana, manteniendo precios competitivos y un servicio eficiente. Queremos construir una comunidad que confíe en nuestra tienda como su primera opción para adquirir calzado deportivo de calidad.</p>
+    </div>
+</div>
+
+<script>
+    function mostrar(id) {
+        document.querySelectorAll('.contenido').forEach(seccion => {
+            seccion.classList.remove('active');
+        });
+
+        document.getElementById(id).classList.add('active');
+        
+        // Desplazar suavemente hacia arriba
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+    
+    // Asegurar que el contenido no quede debajo del menú
+    window.addEventListener('load', function() {
+        const navHeight = document.querySelector('nav').offsetHeight;
+        document.querySelector('.contenido-principal').style.marginTop = navHeight + 'px';
+    });
+</script>
+
+</body>
+</html>
