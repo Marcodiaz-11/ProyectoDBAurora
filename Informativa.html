@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TecSocial - Tecnología para el Cambio Social</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header h2 {
+            font-size: 1.3rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        nav {
+            background-color: #2c3e50;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            color: #667eea;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 70px;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            border-left: 5px solid #667eea;
+            padding-left: 1rem;
+        }
+
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        article {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        article:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        article h3 {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        article p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        article img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .noticias-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .noticia {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 1.5rem;
+            border-radius: 5px;
+        }
+
+        .noticia h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .noticia time {
+            color: #999;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            max-width: 600px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        button[type="submit"] {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            transform: scale(1.05);
+        }
+
+        .multimedia-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .media-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .media-item h4 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        video,
+        audio,
+        iframe {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .footer-content p {
+            margin-bottom: 1rem;
+        }
+
+        address {
+            font-style: normal;
+            color: #bbb;
+        }
+
+        address a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        address a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>TecSocial</h1>
+        <h2>Tecnología con Propósito para Transformar Comunidades</h2>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#noticias">Noticias</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="inicio">
+            <h2>Bienvenido a TecSocial</h2>
+            <p>Somos una organización de tecnología social comprometida con el desarrollo de comunidades vulnerables. A través de la innovación digital, trabajamos para cerrar la brecha tecnológica y empoderar a miles de personas en México y Latinoamérica.</p>
+            <p>Creemos que la tecnología debe ser accesible para todos y utilizarla como herramienta de transformación social, educación y desarrollo comunitario.</p>
+        </section>
+
+        <section id="servicios">
+            <h2>Nuestros Programas de Impacto</h2>
+            <div class="servicios-grid">
+                <article>
+                    <img src="https://images.unsplash.com/photo-1610484826967-09c5720778c7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8RWR1Y2FjaW9uJTIwZGlnaXRhbHxlbnwwfHwwfHx8MA%3D%3D" alt="Educación Digital">
+                    <h3>Educación Digital Comunitaria</h3>
+                    <p>Llevamos talleres gratuitos de alfabetización digital a comunidades marginadas. Enseñamos desde el uso básico de computadoras hasta programación y diseño web, creando oportunidades de desarrollo profesional.</p>
+                    <p>Más de 5,000 personas han sido capacitadas en habilidades digitales que transforman sus vidas y mejoran su empleabilidad.</p>
+                </article>
+
+                <article>
+                    <img src="https://images.unsplash.com/photo-1764738130353-9bf18db12109?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8em9uYXMlMjBydXJhbGVzfGVufDB8fDB8fHww" alt="Conectividad Rural">
+                    <h3>Conectividad para Zonas Rurales</h3>
+                    <p>Instalamos puntos de acceso a internet comunitarios en zonas rurales sin conectividad. Creamos telecentros donde las personas pueden acceder a información, servicios gubernamentales y educación en línea.</p>
+                    <p>Hemos conectado a más de 30 comunidades rurales, beneficiando a familias enteras que ahora tienen acceso al mundo digital.</p>
+                </article>
+
+                <article>
+                    <img src="https://images.unsplash.com/photo-1746712241470-9b91e5c073e9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGxhdGFmb3JtYSUyMGRlJTIwZW1wcmVuZGltaWVudG98ZW58MHx8MHx8fDA%3D" alt="Emprendimiento Social">
+                    <h3>Plataforma de Emprendimiento Social</h3>
+                    <p>Desarrollamos una plataforma web que conecta emprendedores sociales con mentores, inversores de impacto y recursos para hacer crecer sus proyectos que generan cambio positivo en sus comunidades.</p>
+                    <p>Apoyamos a emprendedores que trabajan por la educación, salud, medio ambiente y desarrollo económico local.</p>
+                </article>
+
+                <article>
+                    <img src="https://plus.unsplash.com/premium_photo-1664475324739-ad3cef168415?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dGVsZW1lZGljaW5hfGVufDB8fDB8fHww" alt="Salud Digital">
+                    <h3>Telemedicina Comunitaria</h3>
+                    <p>Implementamos soluciones de telemedicina que permiten a personas en zonas remotas consultar con médicos especialistas. Salvamos vidas acercando la atención médica a quien más lo necesita.</p>
+                    <p>Nuestro sistema ha facilitado más de 10,000 consultas médicas remotas en comunidades sin acceso a servicios de salud.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="noticias">
+            <h2>Últimas Noticias</h2>
+            <div class="noticias-grid">
+                <div class="noticia">
+                    <h4>100 Jóvenes Graduados del Programa de Código</h4>
+                    <time datetime="2026-02-01">1 de febrero de 2026</time>
+                    <p>Celebramos la graduación de 100 jóvenes de comunidades vulnerables que completaron nuestro bootcamp intensivo de programación. El 85% ya consiguió empleo o está desarrollando sus propios emprendimientos tecnológicos.</p>
+                </div>
+
+                <div class="noticia">
+                    <h4>Nueva Alianza con la Secretaría de Educación</h4>
+                    <time datetime="2026-01-15">15 de enero de 2026</time>
+                    <p>ConectaSocial firma convenio con la SEP para llevar alfabetización digital a 500 escuelas rurales en todo el país. El proyecto beneficiará a más de 50,000 estudiantes en los próximos 2 años.</p>
+                </div>
+
+                <div class="noticia">
+                    <h4>Reconocimiento Internacional por Impacto Social</h4>
+                    <time datetime="2026-01-10">10 de enero de 2026</time>
+                    <p>La ONU reconoce a ConectaSocial como modelo de innovación social digital. Nuestro trabajo en telemedicina comunitaria fue destacado como caso de éxito en el informe de Objetivos de Desarrollo Sostenible.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="multimedia">
+            <h2>Multimedia</h2>
+            <div class="multimedia-section">
+                <div class="media-item">
+                    <h4>Video Presentación</h4>
+                    <video controls>
+                        <source src="https://www.pexels.com/es-es/download/video/7966582/" type="video/mp4">
+                        Tu navegador no soporta el elemento de video.
+                    </video>
+                </div>
+
+                <div class="media-item">
+					<h4>Podcast TechTalks</h4>
+					<audio controls>
+						<source src="Entrevista-Telemedicina_v3.mp3" type="audio/mpeg">
+						Tu navegador no soporta el elemento de audio.
+					</audio>
+				</div>
+
+                <div class="media-item">
+                    <h4>Nuestra Ubicación</h4>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1439.7675223009721!2d-99.2342793807804!3d19.46587532535027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d2035180c8eb9b%3A0x7aada947c8c72460!2sGTU%20Naucalpan!5e1!3m2!1ses-419!2smx!4v1770759831317!5m2!1ses-419!2smx" 
+						width="400" 
+						height="300" 
+						style="border:0;" 
+						allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+					</iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto">
+            <h2>Contáctanos</h2>
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="nombre">Nombre *</label>
+                    <input 
+                        type="text" 
+                        id="nombre" 
+                        name="nombre" 
+                        required 
+                        placeholder="Ingresa tu nombre completo">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo Electrónico *</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        required 
+                        placeholder="tucorreo@ejemplo.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="edad">Edad *</label>
+                    <input 
+                        type="number" 
+                        id="edad" 
+                        name="edad" 
+                        min="18" 
+                        max="65" 
+                        required 
+                        placeholder="Edad entre 18 y 65 años">
+                </div>
+
+                <div class="form-group">
+                    <label for="fecha">Fecha de Contacto *</label>
+                    <input 
+                        type="date" 
+                        id="fecha" 
+                        name="fecha" 
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="interes">Área de Interés *</label>
+                    <select id="interes" name="interes" required>
+                        <option value="">Selecciona un área</option>
+                        <option value="educacion">Educación Digital</option>
+                        <option value="conectividad">Conectividad Rural</option>
+                        <option value="emprendimiento">Emprendimiento Social</option>
+                        <option value="salud">Telemedicina</option>
+                        <option value="voluntariado">Ser Voluntario</option>
+                        <option value="donacion">Hacer una Donación</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Mensaje *</label>
+                    <textarea 
+                        id="mensaje" 
+                        name="mensaje" 
+                        required 
+                        placeholder="Cuéntanos sobre tu proyecto o consulta"></textarea>
+                </div>
+
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>Transformando vidas a través de la tecnología | Impactando comunidades | Cerrando brechas digitales</p>
+            <address>
+                <p>Av. Primero de Mayo 238, San Luis Tlatilco, 53529 Naucalpan de Juárez, Méx.</p>
+                <p>Teléfono: <a href="tel:+525544332211">+52 55 4433 2211</a></p>
+                <p>Email: 
+					<a href="mailto:mercadotecnia@tecnaucalpan.mx">
+						mercadotecnia@tecnaucalpan.mx
+					</a>
+				</p>
