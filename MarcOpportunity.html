@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarcOpportunity - Misión, Visión y Objetivos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            min-height: 100vh;
+            background-color: #f8f9fa;
+        }
+        
+        /* Menú Lateral */
+        .sidebar {
+            width: 280px;
+            background: linear-gradient(180deg, #2c3e50 0%, #1a252f 100%);
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 3px 0 10px rgba(0,0,0,0.2);
+        }
+        
+        .logo {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            color: #3498db;
+        }
+        
+        .logo span {
+            color: #2ecc71;
+        }
+        
+        .menu {
+            list-style: none;
+        }
+        
+        .menu li {
+            margin-bottom: 5px;
+        }
+        
+        .menu a {
+            display: block;
+            padding: 12px 25px;
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: all 0.3s;
+            border-left: 4px solid transparent;
+        }
+        
+        .menu a:hover {
+            background: rgba(255,255,255,0.1);
+            border-left: 4px solid #3498db;
+            padding-left: 30px;
+        }
+        
+        .menu a.active {
+            background: rgba(52, 152, 219, 0.2);
+            border-left: 4px solid #3498db;
+            color: #3498db;
+            font-weight: bold;
+        }
+        
+        .menu i {
+            width: 20px;
+            margin-right: 10px;
+            text-align: center;
+        }
+        
+        /* Contenido Principal */
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 30px;
+            max-width: calc(100% - 280px);
+        }
+        
+        .header {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .header h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        /* Tarjetas de Contenido */
+        .content-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 5px solid #3498db;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+        }
+        
+        .content-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .content-card h3 i {
+            margin-right: 10px;
+            background: #3498db;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .highlight-box {
+            background: #f8f9fa;
+            border-left: 4px solid #2ecc71;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .highlight-box h4 {
+            color: #27ae60;
+            margin-bottom: 10px;
+        }
+        
+        /* Grid de Objetivos */
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .objective-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-top: 4px solid #3498db;
+            transition: all 0.3s;
+        }
+        
+        .objective-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .objective-card h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .objective-card h4 i {
+            background: #e74c3c;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+        
+        .objective-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .objective-card li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .objective-card li:last-child {
+            border-bottom: none;
+        }
+        
+        .objective-card li i {
+            color: #2ecc71;
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                margin-bottom: 20px;
+            }
+            
+            .main-content {
+                margin-left: 0;
+                max-width: 100%;
+                padding: 20px;
+            }
+            
+            .menu {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .menu li {
+                margin: 5px;
+            }
+            
+            .menu a {
+                padding: 10px 15px;
+                border-radius: 5px;
+                border-left: none;
+                border-bottom: 3px solid transparent;
+            }
+            
+            .menu a:hover,
+            .menu a.active {
+                border-left: none;
+                border-bottom: 3px solid #3498db;
+                padding-left: 15px;
+            }
+            
+            .objectives-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animación de scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Estilos para el contenido */
+        .content-section {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+        }
+        
+        .content-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Colores de secciones */
+        #mision {
+            border-top-color: #3498db;
+        }
+        
+        #vision {
+            border-top-color: #9b59b6;
+        }
+        
+        #objetivos {
+            border-top-color: #e74c3c;
+        }
+    </style>
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Menú Lateral -->
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>marc<span>◯</span>pportunity</h1>
+            <p style="color: #95a5a6; margin-top: 5px;">Bolsa de Trabajo</p>
+        </div>
+        
+        <ul class="menu">
+            <li><a href="#inicio" class="active"><i class="fas fa-home"></i> Inicio</a></li>
+            <li><a href="#mision"><i class="fas fa-bullseye"></i> Misión</a></li>
+            <li><a href="#vision"><i class="fas fa-eye"></i> Visión</a></li>
+            <li><a href="#objetivos"><i class="fas fa-tasks"></i> Objetivos</a></li>
+            <li><a href="#mercado"><i class="fas fa-chart-line"></i> Obj. Mercado</a></li>
+            <li><a href="#tecnologicos"><i class="fas fa-laptop-code"></i> Obj. Tecnológicos</a></li>
+            <li><a href="#calidad"><i class="fas fa-award"></i> Obj. Calidad</a></li>
+            <li><a href="#operacionales"><i class="fas fa-cogs"></i> Obj. Operacionales</a></li>
+            <li><a href="#social"><i class="fas fa-hands-helping"></i> Obj. Social</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="main-content">
+        <div class="header">
+            <h2><i class="fas fa-info-circle"></i> Misión, Visión y Objetivos</h2>
+            <p>Conoce los principios fundamentales que guían nuestro proyecto de bolsa de trabajo digital.</p>
+        </div>
+
+        <!-- Sección Inicio -->
+        <section id="inicio" class="content-section">
+            <div class="content-card">
+                <h3><i class="fas fa-info-circle"></i> Acerca de MarcOpportunity</h3>
+                <p>Bienvenido a la sección de Misión, Visión y Objetivos de <strong>MarcOpportunity</strong>, nuestra plataforma de bolsa de trabajo digital diseñada para conectar talento con oportunidades de manera innovadora y eficiente.</p>
+                <p>Usa el menú lateral para navegar entre las diferentes secciones y conocer más sobre nuestros principios fundamentales y metas estratégicas.</p>
+            </div>
+        </section>
+
+        <!-- Sección Misión -->
+        <section id="mision" class="content-section">
+            <div class="content-card">
+                <h3><i class="fas fa-bullseye"></i> Misión</h3>
+                <p>Conectar talento con oportunidades mediante una plataforma tecnológica innovadora, eficiente y accesible, facilitando el encuentro entre profesionales calificados y empresas competitivas, contribuyendo al desarrollo económico y profesional de nuestra comunidad.</p>
+                
+                <div class="highlight-box">
+                    <h4>Elementos clave de nuestra misión:</h4>
+                    <ul>
+                        <li><strong>Para candidatos:</strong> Brindar herramientas inteligentes para encontrar el trabajo ideal</li>
+                        <li><strong>Para empresas:</strong> Proporcionar acceso a talento calificado de manera ágil</li>
+                        <li><strong>Para la sociedad:</strong> Reducir el desempleo y mejorar la empleabilidad</li>
+                        <li><strong>Tecnológicamente:</strong> Ofrecer una experiencia de usuario excepcional</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Visión -->
+        <section id="vision" class="content-section">
+            <div class="content-card">
+                <h3><i class="fas fa-eye"></i> Visión</h3>
+                <p>Ser la plataforma líder de empleo digital en Latinoamérica para 2030, reconocida por nuestra innovación tecnológica, calidad en las conexiones laborales y contribución significativa al mercado laboral regional, con presencia en al menos 10 países.</p>
+                
+                <div class="highlight-box">
+                    <h4>Metas de nuestra visión:</h4>
+                    <ul>
+                        <li><strong>2026:</strong> Líder nacional en conectividad laboral digital</li>
+                        <li><strong>2028:</strong> Expansión a 5 países de la región</li>
+                        <li><strong>2030:</strong> Plataforma referente en innovación de reclutamiento</li>
+                        <li><strong>Largo plazo:</strong> Ecosistema completo de desarrollo profesional</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Objetivos Generales -->
+        <section id="objetivos" class="content-section">
+            <div class="content-card">
+                <h3><i class="fas fa-tasks"></i> Objetivos Estratégicos</h3>
+                <p>Nuestros objetivos están organizados en cinco categorías principales que abarcan todos los aspectos de nuestro servicio:</p>
+            </div>
+        </section>
+
+        <!-- Objetivos de Mercado -->
+        <section id="mercado" class="content-section">
+            <div class="objective-card">
+                <h4><i class="fas fa-1"></i> 1. Objetivos de Mercado (1-2 años)</h4>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> <strong>Cobertura:</strong> 100,000 usuarios registrados en el primer año</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Empresas asociadas:</strong> 5,000 empresas registradas activas</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Tasa de empleabilidad:</strong> 30% de postulantes encuentran empleo a través de la plataforma</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Cobertura geográfica:</strong> Operación en las 10 principales ciudades del país</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Objetivos Tecnológicos -->
+        <section id="tecnologicos" class="content-section">
+            <div class="objective-card">
+                <h4><i class="fas fa-2"></i> 2. Objetivos Tecnológicos</h4>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> <strong>Experiencia usuario:</strong> 90% de satisfacción en encuestas UX</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Tiempo de carga:</strong> &lt; 2 segundos para páginas críticas</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Disponibilidad:</strong> 99.9% uptime del sistema</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Mobile first:</strong> 70% de uso desde dispositivos móviles</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>API pública:</strong> Disponible para integraciones empresariales</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Objetivos de Calidad -->
+        <section id="calidad" class="content-section">
+            <div class="objective-card">
+                <h4><i class="fas fa-3"></i> 3. Objetivos de Calidad del Servicio</h4>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> <strong>Emparejamiento inteligente:</strong> 80% de precisión en recomendaciones</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Tiempo respuesta:</strong> &lt; 24 horas para consultas de soporte</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Privacidad:</strong> 100% cumplimiento LGPD/Reglamentos de protección de datos</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Transparencia:</strong> Claridad total en procesos y costos</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Objetivos Operacionales -->
+        <section id="operacionales" class="content-section">
+            <div class="objective-card">
+                <h4><i class="fas fa-4"></i> 4. Objetivos Operacionales</h4>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> <strong>Publicación:</strong> Proceso de publicación de ofertas &lt; 5 minutos</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Postulación:</strong> Postulación a oferta en &lt; 3 clics</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Dashboard:</strong> Herramientas completas para ambos perfiles</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Automatización:</strong> 60% de procesos automatizados</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Objetivos de Impacto Social -->
+        <section id="social" class="content-section">
+            <div class="objective-card">
+                <h4><i class="fas fa-5"></i> 5. Objetivos de Impacto Social</h4>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> <strong>Inclusión:</strong> Programas especiales para grupos vulnerables</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Formación:</strong> Alianzas con instituciones educativas</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Gratuidad:</strong> Acceso libre para candidatos</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Sostenibilidad:</strong> Operación carbono neutral en 3 años</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Activar elemento del menú según scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.content-section');
+            const menuLinks = document.querySelectorAll('.menu a');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            menuLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === currentSection) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Si estamos en la parte superior, activar "inicio"
+            if (scrollY < 100) {
+                menuLinks.forEach(link => link.classList.remove('active'));
+                document.querySelector('a[href="#inicio"]').classList.add('active');
+            }
+        });
+        
+        // Smooth scroll para enlaces del menú
+        document.querySelectorAll('.menu a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId !== '#') {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 20,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
